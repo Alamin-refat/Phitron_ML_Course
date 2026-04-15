@@ -8,4 +8,4 @@ st.subheader("Content 2 subheader")
 
 st.text("Hello world!")
 
-st.markdown("**hello** *world*")
+st.markdown(":red[**hello**] *world*")
