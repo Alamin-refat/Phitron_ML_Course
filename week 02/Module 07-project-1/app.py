@@ -11,6 +11,9 @@ st.divider()
 
 with st.sidebar:
     st.header("Controls")
+    
+    # Image uploader
+    
     images = st.file_uploader(
         "Upload the photos of your note",
         type=["jpg", "jpeg", "png"],
@@ -31,3 +34,12 @@ with st.sidebar:
             for i,img in enumerate(images):
                 with col[i]:
                     st.image(img)
+                    
+                    
+    # Difficulty level selection
+    
+    st.selectbox(
+        "Enter the difficulty of your quiz",
+        ("Easy", "Medium", "Hard"),
+        index=None
+    )
