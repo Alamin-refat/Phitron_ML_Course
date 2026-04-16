@@ -19,4 +19,15 @@ with st.sidebar:
     )
     
     if images:
-        st.image(images)
+        if len(images) > 3:
+            st.error("Upload at max 3 images")
+            
+        else:
+            
+            st.subheader("Uploaded Images")
+            
+            col = st.columns(len(images))
+            
+            for i,img in enumerate(images):
+                with col[i]:
+                    st.image(img)
