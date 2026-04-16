@@ -11,9 +11,12 @@ st.divider()
 
 with st.sidebar:
     st.header("Controls")
-    st.file_uploader(
+    images = st.file_uploader(
         "Upload the photos of your note",
         type=["jpg", "jpeg", "png"],
         accept_multiple_files=True,
         
     )
+    
+    if images:
+        st.image(images)
