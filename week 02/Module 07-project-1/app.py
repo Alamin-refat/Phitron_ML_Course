@@ -38,7 +38,7 @@ with st.sidebar:
                     
     # Difficulty level selection
     
-    st.selectbox(
+    selected_option = st.selectbox(
         "Enter the difficulty of your quiz",
         ("Easy", "Medium", "Hard"),
         index=None
