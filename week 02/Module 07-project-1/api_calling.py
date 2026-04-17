@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import os ,io
 from gtts import gTTS
 
+
 #loading the environment variable 
 load_dotenv() 
 
@@ -10,6 +11,7 @@ my_api_key = os.getenv("GEMINI_API_KEY")
 
 #initializing a client 
 client = genai.Client(api_key= my_api_key)
+
 
 
 # note generator 
@@ -24,7 +26,8 @@ def note_generator(images):
         contents=[images,prompt]
     )
 
-    return response.text
+    return response.text 
+
 
 
 def audio_transcription(text):
