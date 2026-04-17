@@ -110,3 +110,5 @@ if pressed:
             with st.spinner("AI is generating the quizzes"):
                 quizzes = quiz_generator(pil_images,selected_option)
                 st.markdown(quizzes)
+
+
