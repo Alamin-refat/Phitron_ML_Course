@@ -1,5 +1,6 @@
 import streamlit as st
-
+from api_calling import note_generator,audio_transcription,quiz_generator
+from PIL import Image
 
 # Title
 
@@ -20,6 +21,12 @@ with st.sidebar:
         accept_multiple_files=True,
         
     )
+    
+    pil_images =[]
+
+    for img in images:
+        pil_img = Image.open(img)
+        pil_images.append(pil_img)
     
     if images:
         if len(images) > 3:
@@ -66,20 +73,40 @@ if pressed:
             st.subheader("Your Note")
             
             # The portion below will be replace by API call
-            st.text("Note will be shown here")
+            
+            with st.spinner("AI is writing notes for you"):
+                generated_notes = note_generator(pil_images)
+                st.markdown(generated_notes)
         
         
-        # Audio transcription
+        #Audio transcipt
         with st.container(border=True):
-            st.subheader("Audio transcription")
-            
-            # The portion below will be replace by API call
-            st.text("Audio transcription will be shown here")
-            
-        
-        # Quiz
+            st.subheader("Audio Transcription")
+
+
+
+            #the portion below will be replaced by API Call 
+            with st.spinner("AI is generating audio transcript for you"):
+
+                #clearing the markdown
+
+                generated_notes = generated_notes.replace("#","")
+                generated_notes = generated_notes.replace("*","")
+                generated_notes = generated_notes.replace("-","")
+                generated_notes = generated_notes.replace("`","")
+
+
+                audio_transcript = audio_transcription(generated_notes)
+                st.audio(audio_transcript)
+
+
+        #quiz
+
         with st.container(border=True):
             st.subheader(f"Quiz ({selected_option}) Difficulty")
-            
-            # The portion below will be replace by API call
-            st.text("Quiz will be shown here")
+
+            #the portion below will be replaced by API Call 
+
+            with st.spinner("AI is generating the quizzes"):
+                quizzes = quiz_generator(pil_images,selected_option)
+                st.markdown(quizzes)
