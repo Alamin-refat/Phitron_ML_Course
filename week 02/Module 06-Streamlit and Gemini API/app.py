@@ -14,5 +14,4 @@ response = client.models.generate_content(
     contents="Give me an idea of Gemoini API in 150 words"
 )
 
-
 st.markdown(response.text)
