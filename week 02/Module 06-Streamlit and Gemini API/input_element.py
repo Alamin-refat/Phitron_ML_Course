@@ -12,7 +12,6 @@ age = st.number_input("Enter your age", value=None,placeholder="type your age...
 # st.write("your age is: ",age)
 
 presesed =st.button("Submit",type="primary")
-
 selected =  st.selectbox("choose your profession",
                          ("Student","Employee","Buisenessman"),
                          index=None
