@@ -18,10 +18,8 @@ selected =  st.selectbox("choose your profession",
                          index=None
                          )
 
-
 st.write("your profession is: ",selected)
 
 if presesed:
     st.write(f"your name is: {name} and your age is: {age}")
     
-
