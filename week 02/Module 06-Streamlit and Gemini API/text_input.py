@@ -12,4 +12,3 @@ st.markdown(":red-background[:orange[**hello**] *world*]  :world_map:")
 a=10
 b=20
 st.write(a,b)
-
