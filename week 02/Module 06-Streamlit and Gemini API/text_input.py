@@ -9,7 +9,6 @@ st.subheader("Content 2 subheader")
 st.text("Hello world!")
 
 st.markdown(":red[**hello**] *world*")
-
 st.markdown(":red-background[:orange[**hello**] *world*]  :world_map:")
 
 a=10
